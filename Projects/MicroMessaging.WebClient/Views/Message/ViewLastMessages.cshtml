@@ -1,0 +1,154 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Messages</title>
+    <style>
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .input-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+            .input-container label {
+                font-size: 18px;
+                margin-bottom: 5px;
+            }
+
+            .input-container input[type="datetime-local"] {
+                padding: 10px;
+                font-size: 16px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                width: 250px;
+            }
+
+        #fetch-button {
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+            #fetch-button:hover {
+                background-color: #45a049;
+            }
+
+        .messages {
+            width: 600px;
+            max-height: 300px;
+            overflow-y: auto;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            background-color: #fff;
+        }
+
+        .message-item {
+            margin-bottom: 10px;
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .message-text {
+            font-size: 18px;
+            flex: 1;
+        }
+
+        .message-details {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            color: #777;
+            font-size: 14px;
+        }
+
+        .message-number {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="input-container">
+            <label for="start-date">Начальная дата:</label>
+            <input type="datetime-local" id="start-date">
+        </div>
+        <div class="input-container">
+            <label for="end-date">Конечная дата:</label>
+            <input type="datetime-local" id="end-date">
+        </div>
+        <button id="fetch-button">Получить сообщения</button>
+        <div class="messages"></div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const messagesContainer = document.querySelector('.messages');
+            const fetchButton = document.getElementById('fetch-button');
+
+            function fetchMessages(startDateTime, endDateTime) {
+                if (startDateTime > endDateTime) {
+                    console.error("Начальная дата больше конечной");
+                    return;
+                }
+
+                fetch(`@Model.ConnectionString/api/Message/GetLastMessages/GetLastMessages?StartDate=${encodeURIComponent(startDateTime)}&EndDate=${encodeURIComponent(endDateTime)}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        renderMessages(data.messages);
+                    })
+                    .catch(error => console.error('Ошибка получения сообщений:', error));
+            }
+
+            function renderMessages(messages) {
+                messagesContainer.innerHTML = '';
+                messages.forEach(message => {
+                    const messageItem = document.createElement('div');
+                    messageItem.classList.add('message-item');
+                    const messageText = document.createElement('div');
+                    messageText.classList.add('message-text');
+                    messageText.textContent = message.messageStr;
+                    const messageDetails = document.createElement('div');
+                    messageDetails.classList.add('message-details');
+                    const messageDate = document.createElement('div');
+                    messageDate.classList.add('message-date');
+                    messageDate.textContent = message.messageDateTime;
+                    const messageNumber = document.createElement('div');
+                    messageNumber.classList.add('message-number');
+                    messageNumber.textContent = `#${message.messageNumber}`;
+                    messageDetails.appendChild(messageDate);
+                    messageDetails.appendChild(messageNumber);
+                    messageItem.appendChild(messageText);
+                    messageItem.appendChild(messageDetails);
+                    messagesContainer.appendChild(messageItem);
+                });
+            }
+
+            fetchButton.addEventListener('click', function () {
+                const startDate = document.getElementById('start-date').value;
+                const endDate = document.getElementById('end-date').value;
+                fetchMessages(startDate, endDate);
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34309.116
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{EF325C43-08D7-4E3A-989E-55BC3FF96415}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{128B5739-C602-4C25-8746-5A6CDF3902DD}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MicroMessaging.BLL", "Projects\MicroMessaging.BLL\MicroMessaging.BLL.csproj", "{3A804135-EB4A-4AB0-A820-36D5D82030E1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MicroMessaging.DAL", "Projects\MicroMessaging.DAL\MicroMessaging.DAL.csproj", "{3F0825BF-B61C-4C3D-8D32-EB33DF42FEFA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MicroMessaging.WebServer", "Projects\MicroMessaging.WebServer\MicroMessaging.WebServer.csproj", "{4C496455-41AA-4060-93E2-E1C6E46700BF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MicroMessaging.CommonsHelper", "Projects\MicroMessaging.CommonsHelper\MicroMessaging.CommonsHelper.csproj", "{27A665EA-0718-438C-A79F-9ADEDDC869A2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MicroMessaging.WebClient", "Projects\MicroMessaging.WebClient\MicroMessaging.WebClient.csproj", "{5E8CF863-103F-442B-824C-AF695CA2FC67}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3A804135-EB4A-4AB0-A820-36D5D82030E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A804135-EB4A-4AB0-A820-36D5D82030E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A804135-EB4A-4AB0-A820-36D5D82030E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A804135-EB4A-4AB0-A820-36D5D82030E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F0825BF-B61C-4C3D-8D32-EB33DF42FEFA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F0825BF-B61C-4C3D-8D32-EB33DF42FEFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F0825BF-B61C-4C3D-8D32-EB33DF42FEFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F0825BF-B61C-4C3D-8D32-EB33DF42FEFA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4C496455-41AA-4060-93E2-E1C6E46700BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C496455-41AA-4060-93E2-E1C6E46700BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C496455-41AA-4060-93E2-E1C6E46700BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C496455-41AA-4060-93E2-E1C6E46700BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{27A665EA-0718-438C-A79F-9ADEDDC869A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27A665EA-0718-438C-A79F-9ADEDDC869A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27A665EA-0718-438C-A79F-9ADEDDC869A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27A665EA-0718-438C-A79F-9ADEDDC869A2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E8CF863-103F-442B-824C-AF695CA2FC67}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E8CF863-103F-442B-824C-AF695CA2FC67}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E8CF863-103F-442B-824C-AF695CA2FC67}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E8CF863-103F-442B-824C-AF695CA2FC67}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{3A804135-EB4A-4AB0-A820-36D5D82030E1} = {EF325C43-08D7-4E3A-989E-55BC3FF96415}
+		{3F0825BF-B61C-4C3D-8D32-EB33DF42FEFA} = {EF325C43-08D7-4E3A-989E-55BC3FF96415}
+		{4C496455-41AA-4060-93E2-E1C6E46700BF} = {128B5739-C602-4C25-8746-5A6CDF3902DD}
+		{27A665EA-0718-438C-A79F-9ADEDDC869A2} = {EF325C43-08D7-4E3A-989E-55BC3FF96415}
+		{5E8CF863-103F-442B-824C-AF695CA2FC67} = {128B5739-C602-4C25-8746-5A6CDF3902DD}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {81DF9EB9-0F65-46D3-BB8C-F63BCA75B4FF}
+	EndGlobalSection
+EndGlobal
