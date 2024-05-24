@@ -1,0 +1,16 @@
+CREATE DATABASE "MicroMessaging"
+    WITH
+    OWNER = postgres
+    ENCODING = 'UTF8'
+    LOCALE_PROVIDER = 'libc'
+    CONNECTION LIMIT = -1
+    IS_TEMPLATE = False;
+
+CREATE TABLE public."Messages"
+(
+    "Id" bigint NOT NULL GENERATED ALWAYS AS IDENTITY ( INCREMENT 1 ),
+    "MessageStr" character varying(128) NOT NULL,
+    "MessageNumber" bigint NOT NULL CONSTRAINT "UniqueMessageNumber" UNIQUE,
+    "MessageDateTime" timestamp without time zone NOT NULL,
+    PRIMARY KEY ("Id")
+);
